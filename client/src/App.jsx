@@ -8,6 +8,7 @@ import Womens from './pages/Womens';
 import Kids from './pages/Kids';
 import ItemDetail from "./pages/ItemDetail";
 import Cart from "./components/Cart";
+import SignUp_SignIn from "./layout/SignUp_SignIn";
 
 const App = () => {
   return (
@@ -20,6 +21,10 @@ const App = () => {
         <Route path="/kids" element={<Kids />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/product-details/:id" element={<ItemDetail />} />
+
+        <Route index element={<SignUp_SignIn />}>
+
+        </Route>
       </Routes>
       <Footer />
     </BrowserRouter>
