@@ -23,6 +23,11 @@ const Navbar = () => {
                 </p>
             </div>
 
+            {/* mobile navbar */}
+            <div
+                className={`fixed md:hidden w-full h-full pointer-events-auto bg-black/20 z-10 
+                ${toggleLinks ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+            ></div>
             <nav className="flex items-center justify-between py-4">
                 <h2 className='font-bold text-2xl'>Flone.</h2>
 
