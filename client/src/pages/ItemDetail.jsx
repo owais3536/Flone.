@@ -17,19 +17,19 @@ const ItemDetail = () => {
 
     return (
         <main className="container mx-auto">
-            <div className="flex">
+            <div className="flex flex-col lg:flex-row">
                 {/* left */}
-                <div className="flex-1 flex justify-end">
-                    <div className="">
-                        <img src="/men-2.png" alt="" width={100} />
-                        <img src="/men-2.png" alt="" width={100} />
-                        <img src="/men-2.png" alt="" width={100} />
+                <div className="flex-1 flex flex-col-reverse md:flex-row xl:justify-end gap-y-4">
+                    <div className="flex flex-row md:flex-col justify-center">
+                        <img src="/men-2.png" alt="" className="w-[100px]" />
+                        <img src="/men-2.png" alt="" className="w-[100px]" />
+                        <img src="/men-2.png" alt="" className="w-[100px]" />
                     </div>
 
                     <img src="/men-2.png" alt="" className="bg-slate-100" />
                 </div>
                 {/* right */}
-                <div className="flex-1 pl-4">
+                <div className="flex-1 mt-10 md:ml-4">
                     {/* name & price */}
                     <h2 className="text-xl font-medium capitalize">{item.name}</h2>
                     <div className="mt-4 flex item-center gap-2">
@@ -91,7 +91,7 @@ const ItemDetail = () => {
             {/* related/recommended products */}
             <div className="mt-10">
                 <h3 className="text-xl uppercase">You might also like</h3>
-                <div className="my-6 grid grid-cols-5">
+                <div className="my-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 place-items-center gap-4">
                     <ItemCard name={item.name} src={item.src} originalPrice={item.originalPrice} discountPrice={item.discountPrice} />
                     <ItemCard name={item.name} src={item.src} originalPrice={item.originalPrice} discountPrice={item.discountPrice} />
                     <ItemCard name={item.name} src={item.src} originalPrice={item.originalPrice} discountPrice={item.discountPrice} />

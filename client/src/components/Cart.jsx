@@ -30,14 +30,17 @@ const Cart = () => {
                 </tbody>
             </table>
 
-            <div className="flex justify-between mt-10">
-                <div className="w-full">
+            <div
+                className="flex flex-col md:flex-row items-center justify-center 
+                2xl:justify-between md:items-start px-2 md:px-0 mt-10 gap-y-4 md:gap-x-4"
+            >
+                <div className="w-full 2xl:w-3/4">
                     <h2 className="text-lg font-semibold">Have a coupon?</h2>
                     <p className="text-sm">
                         Add your code for and instant cart discount
                     </p>
                     <div
-                        className="w-2/4 mt-4 py-3 px-2 border border-gray-400 rounded-md flex items-center gap-3"
+                        className="w-full 2xl:w-2/4 mt-4 py-3 px-2 border border-gray-400 rounded-md flex items-center gap-3"
                     >
                         <input
                             type="text"
@@ -48,7 +51,7 @@ const Cart = () => {
                     </div>
                 </div>
 
-                <div className="w-2/4 border border-gray-400 rounded-md p-4">
+                <div className="w-full 2xl:w-2/4 border border-gray-400 rounded-md p-4">
                     <h2 className="text-xl font-semibold">Cart summary</h2>
                     <div className="flex items-center justify-between mt-8">
                         <span className="text-sm">Subtotal</span>
