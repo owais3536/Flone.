@@ -5,10 +5,10 @@ const SignUp = () => {
         <div className="container mx-auto py-10">
             <div className="flex items-center justify-center">
                 <form className="w-2/3 p-4 shadow-lg flex items-center rounded-md">
-                    <div className="w-1/2">
+                    <div className="w-1/2 hidden lg:block">
                         <img src="/form-image.jpg" alt="form image" className="w-full h-auto" />
                     </div>
-                    <div className="w-1/2">
+                    <div className="w-full lg:w-1/2">
                         <h2 className="text-center text-2xl font-bold">Sign Up</h2>
                         <p className="text-center text-sm text-gray-400 mt-2">Unlock your world</p>
 
@@ -33,7 +33,7 @@ const SignUp = () => {
                             />
                         </div>
                         <div className="flex flex-col gap-1">
-                            <label htmlFor="password" className="text-sm px-2 text-gray-600">Email</label>
+                            <label htmlFor="password" className="text-sm px-2 text-gray-600">Password</label>
                             <input
                                 type="password"
                                 id="password"
