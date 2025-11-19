@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 const SignUp = () => {
 
     return (
-        <div className="container mx-auto py-10">
-            <div className="flex items-center justify-center">
-                <form className="w-2/3 p-4 shadow-lg flex items-center rounded-md">
+        <div className="container mx-auto">
+            <div className="w-full flex items-center justify-center">
+                <form className="w-2/3 p-4 shadow-2xl flex items-center rounded-md my-20">
                     <div className="w-1/2 hidden lg:block">
                         <img src="/form-image.jpg" alt="form image" className="w-full h-auto" />
                     </div>

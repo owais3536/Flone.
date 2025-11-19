@@ -1,8 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import HomePage from './pages/HomePage';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 import Mens from './pages/Mens';
 import Womens from './pages/Womens';
 import Kids from './pages/Kids';
@@ -10,6 +8,9 @@ import ItemDetail from "./pages/ItemDetail";
 import Cart from "./components/Cart";
 import SignUp_SignIn from "./layout/SignUp_SignIn";
 import SignUp from "./components/SignUp";
+import SignIn from "./components/SignIn";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
 
         <Route element={<SignUp_SignIn />}>
           <Route path="signup" element={<SignUp />} />
+          <Route path="signin" element={<SignIn />} />
         </Route>
       </Routes>
       <Footer />

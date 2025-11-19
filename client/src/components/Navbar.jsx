@@ -4,6 +4,7 @@ import { Search, UserRound, Heart, ShoppingBag, Menu, X } from "lucide-react";
 
 const Navbar = () => {
     const [toggleLinks, setToggleLinks] = useState(false);
+    const [user, setUser] = useState(true);
 
     function handleToggleLink() {
         setToggleLinks(prev => !prev);
@@ -97,23 +98,34 @@ const Navbar = () => {
                         <Search width={20} />
                     </li>
                     <li className='cursor-pointer'>
-                        <UserRound width={20} />
-                    </li>
-                    <li className='cursor-pointer'>
                         <Heart width={20} />
                     </li>
-                    <li className='cursor-pointer relative'>
-                        <ShoppingBag width={20} />
-                        <span
-                            className='absolute -top-2 -right-2 bg-black text-white w-4 h-5 text-sm 
+                    <li className='relative'>
+                        <NavLink to="/cart">
+                            <ShoppingBag width={20} />
+                            <span
+                                className='absolute -top-2 -right-2 bg-black text-white w-4 h-5 text-sm 
                             rounded-full text-center'
-                        >
-                            0
-                        </span>
+                            >
+                                0
+                            </span>
+                        </NavLink>
                     </li>
                     <li className='cursor-pointer md:hidden' onClick={handleToggleLink}>
                         <Menu width={20} />
                     </li>
+                    {user ? (
+                        <li>
+                            <button className='cursor-pointer'>Logout</button>
+                        </li>
+                    ) : (
+
+                        <li>
+                            <NavLink to="/signin">
+                                <UserRound width={20} />
+                            </NavLink>
+                        </li>
+                    )}
                 </ul>
             </nav>
         </header>
