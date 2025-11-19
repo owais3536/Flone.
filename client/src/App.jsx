@@ -9,6 +9,7 @@ import Kids from './pages/Kids';
 import ItemDetail from "./pages/ItemDetail";
 import Cart from "./components/Cart";
 import SignUp_SignIn from "./layout/SignUp_SignIn";
+import SignUp from "./components/SignUp";
 
 const App = () => {
   return (
@@ -22,8 +23,8 @@ const App = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/product-details/:id" element={<ItemDetail />} />
 
-        <Route index element={<SignUp_SignIn />}>
-
+        <Route element={<SignUp_SignIn />}>
+          <Route path="signup" element={<SignUp />} />
         </Route>
       </Routes>
       <Footer />
