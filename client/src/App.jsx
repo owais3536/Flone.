@@ -1,16 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import HomePage from './pages/HomePage';
 import Mens from './pages/Mens';
-import Womens from './pages/Womens';
 import Kids from './pages/Kids';
-import ItemDetail from "./pages/ItemDetail";
+import Womens from './pages/Womens';
 import Cart from "./components/Cart";
-import SignUp_SignIn from "./layout/SignUp_SignIn";
+import HomePage from './pages/HomePage';
 import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ItemDetail from "./pages/ItemDetail";
+import SignUp_SignIn from "./layout/SignUp_SignIn";
 
 const App = () => {
   return (

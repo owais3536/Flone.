@@ -16,16 +16,23 @@ const Cart = () => {
                 </thead>
                 <tbody>
                     <tr className="flex py-4 border-b border-gray-400">
-                        <td className="flex-2 ">Item name</td>
-                        <td className="flex-1 flex items-center justify-center ">
-                            <div className="flex items-center border border-gray-400 px-3">
-                                <Minus width={14} />
-                                <span>1</span>
-                                <Plus width={14} />
+                        <td className="flex-2 flex ">
+                            <img src="/men-3.png" alt="" width={50} />
+                            <div>
+                                <h6>Item name</h6>
+                                <p className="text-xs mt-2">color: Red</p>
+                                <p className="text-xs">size: L</p>
                             </div>
                         </td>
-                        <td className="flex-1 text-center font-bold">$ 16.00</td>
-                        <td className="flex-1 text-center font-bold">$ 16.00</td>
+                        <td className="flex-1 flex items-center justify-center ">
+                            <div className="flex items-center gap-2 border border-gray-400 px-3 rounded-md">
+                                <Minus width={14} className="cursor-pointer" />
+                                <span>1</span>
+                                <Plus width={14} className="cursor-pointer" />
+                            </div>
+                        </td>
+                        <td className="flex-1 font-bold flex items-center justify-center">$ 16.00</td>
+                        <td className="flex-1 font-bold flex items-center justify-center">$ 16.00</td>
                     </tr>
                 </tbody>
             </table>
