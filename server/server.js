@@ -4,14 +4,16 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import connectDB from "./utils/connectDB.js";
-import authRoute from "./routes/auth.js";
+import authRoutes from "./routes/auth_routes.js";
+import productRoutes from "./routes/product_routes.js";
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, }));
 
-app.use("/api/auth", authRoute);
+app.use("/api/auth", authRoutes);
+app.use("/api/product", productRoutes);
 
 const PORT = 8080 || process.env.PORT;
 

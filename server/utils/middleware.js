@@ -1,21 +1,29 @@
 import jwt from "jsonwebtoken";
 
-export async function protectedRoute(req, res, next) {
+export function protectedRoute(req, res, next) {
     const authHeader = req.headers["authorization"];
     const token = authHeader && authHeader.split(" ")[1];
 
-    if (!token) return res.sendStatus(401);
+    if (!token) {
+        return res
+            .sendStatus(401)
+            .json({ message: "No token provided!" })
+    }
 
     jwt.verify(token, process.env.SECRET_KEY, (err, user) => {
-        if (err) return res.sendStatus(401);
+        if (err) {
+            return res
+                .sendStatus(401)
+                .json({ message: "Invalid token" })
+        }
         req.user = user;
         next();
     })
 }
 
-export async function adminRoute(req, res, next) {
+export function adminRoute(req, res, next) {
     try {
-        if (res.user && req.user.role === "admin") {
+        if (req.user && req.user.role === "admin") {
             next();
         }
     } catch (error) {
