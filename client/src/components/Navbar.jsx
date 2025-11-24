@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { Link, NavLink } from "react-router-dom";
 import { Search, UserRound, Heart, ShoppingBag, Menu, X } from "lucide-react";
 import SearchBar from './SearchBar';
@@ -6,11 +6,10 @@ import SearchBar from './SearchBar';
 const Navbar = () => {
     const [toggleLinks, setToggleLinks] = useState(false);
     const [openSearch, setOpenSearch] = useState(false);
-    const user = true;
+    const user = false;
 
     function handleToggleLink() {
         setToggleLinks(prev => !prev);
-        console.log("It worked!");
     }
 
     return (
@@ -129,7 +128,7 @@ const Navbar = () => {
                 </nav>
             </header>
         </>
-    )
-}
+    );
+};
 
-export default Navbar
+export default Navbar;
