@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router";
 import { Search, UserRound, Heart, ShoppingBag, Menu, X } from "lucide-react";
 import SearchBar from './SearchBar';
 

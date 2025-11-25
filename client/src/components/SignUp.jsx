@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 const SignUp = () => {
 
     return (
@@ -55,7 +55,7 @@ const SignUp = () => {
                 </form>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default SignUp;
