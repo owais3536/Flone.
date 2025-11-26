@@ -1,6 +1,6 @@
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router";
 
-import { mensItemData } from "../../public/data"
+import { mensItemData } from "../../public/data";
 import { useState } from "react";
 import { Minus, Plus } from "lucide-react";
 
@@ -9,11 +9,11 @@ import ItemCard from "../components/ItemCard";
 const ItemDetail = () => {
     const { id } = useParams();
     const item = mensItemData.find((item) => item.id == id);
-    const [selectedColor, setSelectedColor] = useState(item.colors[0])
+    const [selectedColor, setSelectedColor] = useState(item.colors[0]);
     const [selectedSize, setSelectedSize] = useState();
 
 
-    if (!item) return <p>No item found...</p>
+    if (!item) return <p>No item found...</p>;
 
     return (
         <main className="container mx-auto">
@@ -103,7 +103,7 @@ const ItemDetail = () => {
                 </div>
             </div>
         </main>
-    )
-}
+    );
+};
 
-export default ItemDetail
+export default ItemDetail;
