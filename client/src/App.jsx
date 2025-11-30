@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router";
+import { ToastContainer } from "react-toastify";
 
 import Mens from './pages/Mens';
 import Kids from './pages/Kids';
@@ -17,6 +18,7 @@ import Orders from "./components/Orders";
 const App = () => {
   return (
     <BrowserRouter>
+      <ToastContainer autoClose={1500} />
       <Routes>
         <Route element={<RootLayout />}>
           <Route index element={<HomePage />} />
