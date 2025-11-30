@@ -52,7 +52,7 @@ router.post("/register", async (req, res) => {
                 cart: user.cart,
             },
             accessToken,
-        })
+        });
     } catch (error) {
         res.status(500).json({
             error: true,
@@ -106,13 +106,13 @@ router.post("/signin", async (req, res) => {
                 role: isUser.role,
             },
             accessToken,
-        })
+        });
 
     } catch (error) {
         res.status(500).json({
             error: true,
             message: error.message,
-        })
+        });
     }
 });
 
