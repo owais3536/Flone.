@@ -12,6 +12,7 @@ import DashboardLayout from "./layout/DashboardLayout";
 import Dashboard from "./pages/Dashboard";
 import RootLayout from "./layout/RootLayout";
 import Products from "./components/Products";
+import Orders from "./components/Orders";
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
         <Route path="dashboard" element={<DashboardLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="products" element={<Products />} />
+          <Route path="orders" element={<Orders />} />
         </Route>
 
       </Routes>

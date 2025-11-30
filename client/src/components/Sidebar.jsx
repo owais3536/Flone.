@@ -16,7 +16,7 @@ const Sidebar = () => {
                         onClick={() => setSelectedSB("dashboard")}
                     >
                         <Link
-                            to="dashboard"
+                            to="/dashboard"
                             className={`w-full flex items-center gap-4 p-3 transition-all 
                             ease-in-out cursor-pointer
                             ${selectedSB === "dashboard" ?
