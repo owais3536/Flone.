@@ -1,16 +1,32 @@
-import React, { useState } from 'react';
-import { Link, NavLink } from "react-router";
+import React, { useEffect, useState } from 'react';
+import { Link, NavLink, useNavigate } from "react-router";
 import { Search, UserRound, Heart, ShoppingBag, Menu, X } from "lucide-react";
 import SearchBar from './SearchBar';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUser, signout } from '../store/auth';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const user = useSelector((state) => state.auth.user);
+
     const [toggleLinks, setToggleLinks] = useState(false);
     const [openSearch, setOpenSearch] = useState(false);
-    const user = false;
 
     function handleToggleLink() {
         setToggleLinks(prev => !prev);
     }
+
+    function handleLogout() {
+        dispatch(signout());
+        navigate("/");
+        toast("Sign out successfully");
+    }
+
+    useEffect(() => {
+        dispatch(getUser());
+    }, [dispatch]);
 
     return (
         <>
@@ -28,7 +44,7 @@ const Navbar = () => {
                     </p>
                 </div>
 
-                {/* mobile navbar */}
+                {/* mobile navbar start */}
                 <div
                     className={`fixed md:hidden w-full h-full pointer-events-auto bg-black/20 z-10 
                 ${toggleLinks ? "opacity-100" : "opacity-0 pointer-events-none"}`}
@@ -72,6 +88,7 @@ const Navbar = () => {
                         <li className='py-3 block'>About</li>
                         <li className='py-3 block'>Contact</li>
                     </ul>
+                    {/* mobile navbar end */}
 
                     <ul
                         className="hidden md:flex items-center gap-4">
@@ -114,7 +131,12 @@ const Navbar = () => {
                         </li>
                         {user ? (
                             <li>
-                                <button className='cursor-pointer'>Logout</button>
+                                <button
+                                    className='cursor-pointer'
+                                    onClick={handleLogout}
+                                >
+                                    Logout
+                                </button>
                             </li>
                         ) : (
 
