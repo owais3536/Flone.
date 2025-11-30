@@ -1,11 +1,39 @@
-import { Link } from "react-router";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router";
+import { signin } from "../store/auth";
 
 const SignIn = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const [formValues, setFormValues] = useState({
+        name: "",
+        email: "",
+        password: "",
+    });
+    const [error, setError] = useState(false);
+
+    function handleChange(e) {
+        const { name, value } = e.target;
+        setFormValues({ ...formValues, [name]: value });
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        dispatch(signin(formValues))
+            .then(() => navigate("/"));
+    }
+
 
     return (
         <div className="container mx-auto">
             <div className="w-full md:h-fit flex justify-center">
-                <form className="w-2/3 p-4 shadow-2xl flex items-center rounded-md my-20">
+                <form
+                    onSubmit={handleSubmit}
+                    className="w-2/3 p-4 shadow-2xl flex items-center rounded-md my-20"
+                >
                     <div className="w-1/2 hidden lg:block">
                         <img src="/form-image.jpg" alt="form image" className="w-full h-auto" />
                     </div>
@@ -18,9 +46,11 @@ const SignIn = () => {
                             <input
                                 type="email"
                                 id="email"
+                                name="email"
                                 placeholder="Enter your email"
                                 required
                                 className="border border-gray-400 p-2 rounded-md"
+                                onChange={handleChange}
                             />
                         </div>
                         <div className="flex flex-col gap-1">
@@ -28,14 +58,19 @@ const SignIn = () => {
                             <input
                                 type="password"
                                 id="password"
+                                name="password"
                                 placeholder="Enter your password"
                                 required
                                 className="border border-gray-400 p-2 rounded-md"
+                                onChange={handleChange}
                             />
                         </div>
                         <p className="mt-3 text-sm text-gray-500">
                             Don't have an account? <Link to="/signup" className="font-bold text-blue-400">Sign Up</Link>
                         </p>
+
+                        {error && <p className="text-red-400">{error}</p>}
+
                         <button
                             type="submit"
                             className="mt-3 w-full text-center text-white bg-blue-600 hover:bg-blue-500 py-2 rounded-md cursor-pointer"

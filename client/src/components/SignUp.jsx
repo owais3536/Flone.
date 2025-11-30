@@ -23,12 +23,8 @@ const SignUp = () => {
     function handleSubmit(e) {
         e.preventDefault();
 
-        const formData = new FormData();
-        formData.append("name", formValues.name);
-        formData.append("email", formValues.email);
-        formData.append("password", formValues.password);
-
-        dispatch(register(formData)).then(() => navigate("/"));
+        dispatch(register(formValues))
+            .then(() => navigate("/login"));
     }
 
     return (
