@@ -1,8 +1,8 @@
-import { Heart } from "lucide-react"
+import { Heart } from "lucide-react";
 
-const ItemCard = ({ name, src, originalPrice, discountPrice }) => {
+const ItemCard = ({ name, src, originalPrice, discountPrice, navigate }) => {
     return (
-        <div className="w-[300px] overflow-hidden relative">
+        <div className="w-[300px] overflow-hidden relative cursor-pointer" onClick={navigate}>
             <div className="bg-slate-100 w-full flex justify-center ">
                 <img src={src} alt="Men fashion image" width={240} />
             </div>
@@ -18,7 +18,7 @@ const ItemCard = ({ name, src, originalPrice, discountPrice }) => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default ItemCard
+export default ItemCard;
