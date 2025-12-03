@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router";
 import { signin } from "../store/auth";
+import { toast } from "react-toastify";
 
 const SignIn = () => {
     const dispatch = useDispatch();
@@ -23,7 +24,10 @@ const SignIn = () => {
         e.preventDefault();
 
         dispatch(signin(formValues))
-            .then(() => navigate("/"));
+            .then(() => {
+                toast("Sign-in successfull");
+                navigate("/");
+            });
     }
 
 

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router";
 import { register } from "../store/auth";
+import { toast } from "react-toastify";
 
 
 const SignUp = () => {
@@ -24,7 +25,10 @@ const SignUp = () => {
         e.preventDefault();
 
         dispatch(register(formValues))
-            .then(() => navigate("/login"));
+            .then(() => {
+                toast("Sign-up successfull");
+                navigate("/login");
+            });
     }
 
     return (
