@@ -116,4 +116,33 @@ router.post("/signin", async (req, res) => {
     }
 });
 
+router.get("/get-user-info", protectedRoute, async (req, res) => {
+    const { userId } = req.user;
+
+    try {
+        const user = await User.findOne({ _id: userId });
+
+        if (!user) {
+            return res.status(404).json({
+                message: "User not found!"
+            });
+        }
+
+        return res.status(200).json({
+            error: false,
+            message: "User info",
+            user: {
+                name: user.name,
+                email: user.email,
+                role: user.role,
+            }
+        });
+    } catch (error) {
+        return res.status(500).json({
+            error: true,
+            message: error.message,
+        });
+    }
+});
+
 export default router;

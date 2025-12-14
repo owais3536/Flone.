@@ -5,7 +5,7 @@ const SearchBar = ({ openSearch, setOpenSearch }) => {
     return (
         <>
             <div
-                className={`fixed w-full h-full bg-black/70 z-50 transition-all duration-300 ease-in-out
+                className={`fixed w-full h-full bg-black/30 z-50 transition-all duration-300 ease-in-out
                     ${openSearch ? "opacity-100 pointer-events-auto " : "opacity-0 pointer-events-none"}`}
                 onClick={() => setOpenSearch(!openSearch)}
             ></div>

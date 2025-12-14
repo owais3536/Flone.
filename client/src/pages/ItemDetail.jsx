@@ -8,7 +8,7 @@ import ItemCard from "../components/ItemCard";
 
 const ItemDetail = () => {
     const { id } = useParams();
-    const item = mensItemData.find((item) => item.id == id);
+    const item = mensItemData.find((item) => String(item.id) === id);
     const [selectedColor, setSelectedColor] = useState(item.colors[0]);
     const [selectedSize, setSelectedSize] = useState();
 

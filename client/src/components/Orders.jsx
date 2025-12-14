@@ -1,3 +1,4 @@
+import { FilePen } from "lucide-react";
 
 const Orders = () => {
     const status = "pending";
@@ -35,43 +36,8 @@ const Orders = () => {
                                         <span className="bg-emerald-300 px-2 py-1 rounded-full text-sm">Completed</span>
                                     )}
                                 </td>
-                            </tr>
-                            <tr className="border-b border-b-gray-300">
-                                <td className="flex gap-2 py-4">
-                                    <img src="/men-3.png" alt="" className="w-10 object-cover" />
-                                    <div className="flex flex-col gap-1 text-sm">
-                                        <span>Item name</span>
-                                        <span>Size: M</span>
-                                    </div>
-                                </td>
-                                <td className="text-sm py-4">2</td>
-                                <td className="text-sm py-4">user@fake.com</td>
-                                <td className="text-sm py-4">Abc fake st.</td>
-                                <td className="text-sm py-4">
-                                    {status === "pending" ? (
-                                        <span className="bg-yellow-300 px-2 py-1 rounded-full text-sm">Pending</span>
-                                    ) : (
-                                        <span className="bg-emerald-300 px-2 py-1 rounded-full text-sm">Completed</span>
-                                    )}
-                                </td>
-                            </tr>
-                            <tr className="border-b border-b-gray-300">
-                                <td className="flex gap-2 py-4">
-                                    <img src="/men-3.png" alt="" className="w-10 object-cover" />
-                                    <div className="flex flex-col gap-1 text-sm">
-                                        <span>Item name</span>
-                                        <span>Size: M</span>
-                                    </div>
-                                </td>
-                                <td className="text-sm py-4">2</td>
-                                <td className="text-sm py-4">user@fake.com</td>
-                                <td className="text-sm py-4">Abc fake st.</td>
-                                <td className="text-sm py-4">
-                                    {status === "pending" ? (
-                                        <span className="bg-yellow-300 px-2 py-1 rounded-full text-sm">Pending</span>
-                                    ) : (
-                                        <span className="bg-emerald-300 px-2 py-1 rounded-full text-sm">Completed</span>
-                                    )}
+                                <td>
+                                    <FilePen width={24} height={24} className="w-6 h-6 cursor-pointer" />
                                 </td>
                             </tr>
                         </tbody>

@@ -1,12 +1,14 @@
-import { Menu } from "lucide-react"
-import Filters from "../components/Filters"
-import ItemCard from "../components/ItemCard"
-import Pagination from "../components/Pagination"
-import { useState } from "react"
+import { Menu } from "lucide-react";
+import Filters from "../components/Filters";
+import ItemCard from "../components/ItemCard";
+import Pagination from "../components/Pagination";
+import { useState } from "react";
 
 import { mensItemData } from "../../public/data";
+import { useNavigate } from "react-router";
 
 const Mens = () => {
+    const navigate = useNavigate();
     const [filterMenu, setFilterMenu] = useState(false);
 
     function handleFilterMenu() {
@@ -43,7 +45,14 @@ const Mens = () => {
                         className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center gap-y-4"
                     >
                         {mensItemData.map((item) => (
-                            <ItemCard key={item.id} name={item.name} src={item.src} originalPrice={item.originalPrice} discountPrice={item.discountPrice} />
+                            <ItemCard
+                                key={item.id}
+                                name={item.name}
+                                src={item.src}
+                                originalPrice={item.originalPrice}
+                                discountPrice={item.discountPrice}
+                                navigate={() => navigate(`/product-details/${item.id}`)}
+                            />
                         ))}
                     </div>
                     <div className="flex items-center justify-end mt-10">
@@ -52,7 +61,7 @@ const Mens = () => {
                 </section>
             </div>
         </main >
-    )
-}
+    );
+};
 
-export default Mens
+export default Mens;

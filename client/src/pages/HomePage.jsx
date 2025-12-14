@@ -1,9 +1,11 @@
-import { allData } from '../../public/data'
-import Banner from '../components/Banner'
-import ItemCard from '../components/ItemCard'
-import Services from '../components/Services'
+import { useNavigate } from 'react-router';
+import { allData } from '../../public/data';
+import Banner from '../components/Banner';
+import ItemCard from '../components/ItemCard';
+import Services from '../components/Services';
 
 const HomePage = () => {
+  const navigate = useNavigate();
   return (
     <>
       <Banner />
@@ -25,12 +27,13 @@ const HomePage = () => {
               src={item.src}
               discountPrice={item.discountPrice}
               originalPrice={item.originalPrice}
+              navigate={() => navigate(`/product-details/${item.id}`)}
             />
           ))}
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
