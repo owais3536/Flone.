@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { House, MessageSquareDot, Package2, Settings, ShoppingBag, UsersRound } from "lucide-react";
+import { House, Package2, ShoppingBag } from "lucide-react";
 import { Link } from "react-router";
 
 const Sidebar = () => {
