@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { X } from "lucide-react";
 
 const AddProduct = ({ addProduct, setAddProduct }) => {
   const [name, setName] = useState("");
@@ -6,6 +7,26 @@ const AddProduct = ({ addProduct, setAddProduct }) => {
   const [discountPrice, setDiscountPrice] = useState(0);
   const [details, setDetails] = useState([]);
   const [detail, setDetail] = useState("");
+  const [size, setSize] = useState([]);
+  const [color, setColor] = useState([]);
+
+  const handleSize = (e) => {
+    const { value, checked } = e.target;
+    setSize((prev) =>
+      checked ? [...prev, value] : prev.filter((s) => s !== value),
+    );
+  };
+
+  const handleColor = (e) => {
+    const { value, checked } = e.target;
+    setColor((prev) =>
+      checked ? [...prev, value] : prev.filter((c) => c !== value),
+    );
+  };
+
+  const handleDelete = (index) => {
+    setDetails(details.filter((_, i) => i !== index));
+  };
 
   const handleKeyDown = (e) => {
     if (e.keyCode !== 13) {
@@ -71,33 +92,62 @@ const AddProduct = ({ addProduct, setAddProduct }) => {
           </div>
           <div className="mt-4">
             <label className="text-xs text-gray-600">Details</label>
-            <div className="flex flex-wrap items-center gap-3 ring ring-gray-400 rounded-md p-2">
-              <ul className="inline-flex flex-wrap items-center gap-2">
-                {details.map((d, index) => (
-                  <li
-                    key={index}
-                    className="text-xs text-gray-700 bg-gray-300 px-2 py-1 rounded-sm"
-                  >
-                    {d}
-                  </li>
-                ))}
-              </ul>
+            <div className="flex flex-wrap p-2 py-3 gap-2 ring ring-gray-400 rounded-md">
+              {details.map((d, index) => (
+                <div
+                  key={index}
+                  className="inline-flex items-center gap-1 bg-gray-200 text-gray-800 px-2 py-1 rounded-sm"
+                >
+                  <span className="text-xs capitalize">
+                    {index + 1}.{d}
+                  </span>
+                  <span className="text-xs cursor-pointer">
+                    <X width={12} onClick={() => handleDelete(index)} />
+                  </span>
+                </div>
+              ))}
               <input
-                type="text"
-                name="details"
+                placeholder="Type here"
+                name="detail"
                 value={detail}
-                onChange={(e) => setDetail(e.target.value)}
                 onKeyDown={handleKeyDown}
-                className="outline-none text-sm w-fit"
+                onChange={(e) => setDetail(e.target.value)}
+                className="text-xs outline-none"
               />
             </div>
           </div>
-          <button
-            type="submit"
-            className="text-sm my-6 py-1 px-3 bg-emerald-300 rounded-md cursor-pointer"
-          >
-            Add Product
-          </button>
+          <div className="mt-4">
+            <label className="text-xs text-gray-600">Colors</label>
+            <div className="flex items-center gap-2">
+              {["XS", "S", "M", "L", "XL"].map((size) => (
+                <div key={size} className="flex items-center gap-1">
+                  <input type="checkbox" value={size} onChange={handleSize} />
+                  <label className="text-xs font-medium">{size}</label>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="mt-4">
+            <label className="text-xs text-gray-600">Colors</label>
+            <div className="flex items-center gap-2 flex-wrap">
+              {[
+                "Red",
+                "Blue",
+                "Green",
+                "Brown",
+                "Grey",
+                "Purple",
+                "Pink",
+                "Yellow",
+                "Orange",
+              ].map((color) => (
+                <div key={color} className="flex items-center gap-1">
+                  <input type="checkbox" value={color} onChange={handleColor} />
+                  <label className="text-xs font-medium">{color}</label>
+                </div>
+              ))}
+            </div>
+          </div>
         </aside>
       </form>
     </>
