@@ -9,7 +9,6 @@ import HomePage from './pages/HomePage';
 import Orders from "./components/Orders";
 import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
-import Dashboard from "./pages/Dashboard";
 import ItemDetail from "./pages/ItemDetail";
 import RootLayout from "./layout/RootLayout";
 import Products from "./components/Products";
