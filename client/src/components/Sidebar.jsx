@@ -29,22 +29,6 @@ const Sidebar = () => {
                     </li>
                     <li
 
-                        onClick={() => setSelectedSB("orders")}
-                    >
-                        <Link
-                            to="orders"
-                            className={`w-full flex items-center gap-4 p-3 transition-all 
-                            ease-in-out cursor-pointer
-                            ${selectedSB === "orders" ?
-                                    "bg-violet-700 text-white rounded-lg" : ""}`
-                            }
-                        >
-                            <ShoppingBag width={20} />
-                            <span>Orders</span>
-                        </Link>
-                    </li>
-                    <li
-
                         onClick={() => setSelectedSB("products")}
                     >
                         <Link
@@ -57,6 +41,22 @@ const Sidebar = () => {
                         >
                             <Package2 width={20} />
                             <span>Products</span>
+                        </Link>
+                    </li>
+                    <li
+
+                        onClick={() => setSelectedSB("orders")}
+                    >
+                        <Link
+                            to="orders"
+                            className={`w-full flex items-center gap-4 p-3 transition-all 
+                            ease-in-out cursor-pointer
+                            ${selectedSB === "orders" ?
+                                    "bg-violet-700 text-white rounded-lg" : ""}`
+                            }
+                        >
+                            <ShoppingBag width={20} />
+                            <span>Orders</span>
                         </Link>
                     </li>
                 </ul>
