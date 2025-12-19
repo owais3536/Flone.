@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { X } from "lucide-react";
+import { CloudUpload, X } from "lucide-react";
 
 const AddProduct = ({ addProduct, setAddProduct }) => {
   const [name, setName] = useState("");
@@ -98,9 +98,7 @@ const AddProduct = ({ addProduct, setAddProduct }) => {
                   key={index}
                   className="inline-flex items-center gap-1 bg-gray-200 text-gray-800 px-2 py-1 rounded-sm"
                 >
-                  <span className="text-xs capitalize">
-                    {index + 1}.{d}
-                  </span>
+                  <span className="text-xs capitalize">{d}</span>
                   <span className="text-xs cursor-pointer">
                     <X width={12} onClick={() => handleDelete(index)} />
                   </span>
@@ -148,6 +146,18 @@ const AddProduct = ({ addProduct, setAddProduct }) => {
               ))}
             </div>
           </div>
+          <div className="mt-10 ring ring-gray-400 rounded-md">
+            <div className="w-full flex flex-col items-center justify-center cursor-pointer py-4">
+              <input id="image-upload" name="" className="hidden" />
+              <CloudUpload className="text-violet-700" />
+              <label htmlFor="image-upload" className="text-xs">
+                Upload images
+              </label>
+            </div>
+          </div>
+          <button className="w-full h-fit text-center text-xs font-medium py-2 rounded-md mt-10 bg-violet-700 text-white cursor-pointer">
+            Add Product
+          </button>
         </aside>
       </form>
     </>
