@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CloudUpload, X } from "lucide-react";
+import ImageUpload from "./ImageUpload";
 
 const AddProduct = ({ addProduct, setAddProduct }) => {
   const [name, setName] = useState("");
@@ -38,6 +39,7 @@ const AddProduct = ({ addProduct, setAddProduct }) => {
     }
     setDetail("");
   };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -137,23 +139,16 @@ const AddProduct = ({ addProduct, setAddProduct }) => {
                 "Purple",
                 "Pink",
                 "Yellow",
-                "Orange",
-              ].map((color) => (
-                <div key={color} className="flex items-center gap-1">
-                  <input type="checkbox" value={color} onChange={handleColor} />
-                  <label className="text-xs font-medium">{color}</label>
-                </div>
-              ))}
+                "Orange"].map((color) => (
+                  <div key={color} className="flex items-center gap-1">
+                    <input type="checkbox" value={color} onChange={handleColor} />
+                    <label className="text-xs font-medium">{color}</label>
+                  </div>
+                ))}
             </div>
           </div>
           <div className="mt-10 ring ring-gray-400 rounded-md">
-            <div className="w-full flex flex-col items-center justify-center cursor-pointer py-4">
-              <input id="image-upload" name="" className="hidden" />
-              <CloudUpload className="text-violet-700" />
-              <label htmlFor="image-upload" className="text-xs">
-                Upload images
-              </label>
-            </div>
+            <ImageUpload />
           </div>
           <button className="w-full h-fit text-center text-xs font-medium py-2 rounded-md mt-10 bg-violet-700 text-white cursor-pointer">
             Add Product
