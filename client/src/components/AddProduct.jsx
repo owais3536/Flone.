@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { CloudUpload, X } from "lucide-react";
+import { X } from "lucide-react";
+
 import ImageUpload from "./ImageUpload";
 
 const AddProduct = ({ addProduct, setAddProduct }) => {
