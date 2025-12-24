@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { X } from "lucide-react";
 
 import ImageUpload from "./ImageUpload";
 
 const AddProduct = ({ addProduct, setAddProduct }) => {
+  const dispatch = useDispatch();
+
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [discountPrice, setDiscountPrice] = useState(0);
@@ -45,7 +48,16 @@ const AddProduct = ({ addProduct, setAddProduct }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    handleKeyDown(e);
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("price", price);
+    formData.append("discoundPrice", discountPrice);
+    formData.append("detail", detail);
+    formData.append("size", size);
+    formData.append("color", color);
+
+    dispatch(addProduct(formData));
+    console.log("working");
   };
 
   return (

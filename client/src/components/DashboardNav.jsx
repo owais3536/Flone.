@@ -1,4 +1,4 @@
-import { Bell, ChevronDown, Search, UserRound } from "lucide-react";
+import { Bell, ChevronDown, UserRound } from "lucide-react";
 
 const DashboardNav = () => {
 
