@@ -12,7 +12,7 @@ router.post(
     "/create-product",
     protectedRoute,
     adminRoute,
-    upload.array('images', 4),
+    upload.array('images', 3),
     async (req, res) => {
         try {
             const {
@@ -126,5 +126,21 @@ router.delete(
     }
 );
 
+// get product details
+router.get("/get-all-product", async (req, res) => {
+    try {
+        const product = await Product.find();
+        console.log(product);
+
+        if (!product) return res.status(404).json({ error: true, message: "No product found!" });
+
+        res.status(200).json(product);
+    } catch (error) {
+        res.status(500).json({
+            error: true,
+            message: "Internal server error",
+        });
+    }
+});
 
 export default router;
