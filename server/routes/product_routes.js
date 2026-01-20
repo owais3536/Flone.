@@ -43,7 +43,7 @@ router.post(
                 });
             }
 
-            const imagePaths = req.files.map((file) => file.path);
+            const imagePaths = req.files.map((file) => file.filename);
 
             const product = new Product({
                 name,
