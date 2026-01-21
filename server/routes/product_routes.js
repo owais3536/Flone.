@@ -22,6 +22,7 @@ router.post(
                 details,
                 colors,
                 sizes,
+                units
             } = req.body;
 
             const { userId } = req.user;
@@ -33,6 +34,7 @@ router.post(
             if (
                 !name ||
                 !originalPrice ||
+                !units ||
                 !Array.isArray(parsedColors) ||
                 !Array.isArray(parsedSizes) ||
                 !Array.isArray(parsedDetails)
@@ -49,6 +51,7 @@ router.post(
                 name,
                 originalPrice,
                 discountPrice,
+                units,
                 images: imagePaths,
                 colors: parsedColors,
                 sizes: parsedSizes,

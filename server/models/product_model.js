@@ -35,10 +35,13 @@ const productSchema = new Schema(
             required: true,
             default: [],
         },
+        units: {
+            type: Number,
+            min: 0,
+        },
         userId: {
             type: Schema.Types.ObjectId,
             ref: "User",
-            required: true,
         }
     },
     { timestamps: true }
