@@ -11,6 +11,7 @@ const AddProduct = ({ toggleMenu, setToggleMenu }) => {
   const [name, setName] = useState("");
   const [originalPrice, setOriginalPrice] = useState(0);
   const [discountPrice, setDiscountPrice] = useState(0);
+  const [units, setUnits] = useState(0);
   const [sizes, setSizes] = useState([]);
   const [colors, setColors] = useState([]);
   const [images, setImages] = useState([]);
@@ -55,6 +56,7 @@ const AddProduct = ({ toggleMenu, setToggleMenu }) => {
     formData.append("name", name);
     formData.append("originalPrice", originalPrice);
     formData.append("discountPrice", discountPrice);
+    formData.append("units", units);
     formData.append("sizes", JSON.stringify(sizes));
     formData.append("colors", JSON.stringify(colors));
     formData.append("details", JSON.stringify(detailsList));
@@ -111,6 +113,16 @@ const AddProduct = ({ toggleMenu, setToggleMenu }) => {
               min={1}
               placeholder="Enter price"
               onChange={(e) => setDiscountPrice(Number(e.target.value))}
+              className="block mt-1 w-full rounded-sm text-base py-1 px-2 ring ring-gray-400 outline-none"
+            />
+          </div>
+          <div className="mt-4">
+            <label className="text-sm">Available Units:</label>
+            <input
+              type="number"
+              min={1}
+              placeholder="Enter available units"
+              onChange={(e) => setUnits(Number(e.target.value))}
               className="block mt-1 w-full rounded-sm text-base py-1 px-2 ring ring-gray-400 outline-none"
             />
           </div>
