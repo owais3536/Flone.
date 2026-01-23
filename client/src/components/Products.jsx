@@ -1,9 +1,20 @@
+import { useState, useEffect } from "react";
+
 import { FilePen, Plus } from "lucide-react";
 import AddProduct from "./AddProduct";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllProducts } from "../store/product";
 
 const Products = () => {
-    const [addProduct, setAddProduct] = useState(false);
+    const dispatch = useDispatch();
+    const [toggleMenu, setToggleMenu] = useState(false);
+
+    const product = useSelector(state => state.product.products);
+    console.log(product);
+
+    useEffect(() => {
+        dispatch(getAllProducts());
+    }, []);
 
     return (
         <>
@@ -12,7 +23,7 @@ const Products = () => {
                     <button
                         className="flex items-center gap-2 text-sm 
                         bg-purple-700 text-white py-2 px-4 rounded-lg cursor-pointer"
-                        onClick={() => setAddProduct(!addProduct)}
+                        onClick={() => setToggleMenu(!toggleMenu)}
                     >
                         <Plus width={16} />
                         Add Product
@@ -49,7 +60,7 @@ const Products = () => {
                 </div>
             </div >
 
-            <AddProduct addProduct={addProduct} setAddProduct={setAddProduct} />
+            <AddProduct toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
         </>
     );
 };
