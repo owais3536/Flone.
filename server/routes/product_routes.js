@@ -22,7 +22,8 @@ router.post(
                 details,
                 colors,
                 sizes,
-                units
+                units,
+                category
             } = req.body;
 
             const { userId } = req.user;
@@ -35,6 +36,7 @@ router.post(
                 !name ||
                 !originalPrice ||
                 !units ||
+                !category ||
                 !Array.isArray(parsedColors) ||
                 !Array.isArray(parsedSizes) ||
                 !Array.isArray(parsedDetails)
@@ -52,6 +54,7 @@ router.post(
                 originalPrice,
                 discountPrice,
                 units,
+                category,
                 images: imagePaths,
                 colors: parsedColors,
                 sizes: parsedSizes,
@@ -133,7 +136,6 @@ router.delete(
 router.get("/get-all-product", async (req, res) => {
     try {
         const product = await Product.find();
-        console.log(product);
 
         if (!product) return res.status(404).json({ error: true, message: "No product found!" });
 
