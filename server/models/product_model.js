@@ -39,6 +39,10 @@ const productSchema = new Schema(
             type: Number,
             min: 0,
         },
+        category: {
+            type: String,
+            required: true,
+        },
         userId: {
             type: Schema.Types.ObjectId,
             ref: "User",
