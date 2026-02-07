@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 
 import User from "../models/auth_model.js";
 import { protectedRoute } from "../utils/middleware.js";
+import Cart from "../models/cart_model.js";
 
 const router = Router();
 
@@ -19,6 +20,7 @@ router.post("/register", async (req, res) => {
         }
 
         const isUser = await User.findOne({ email });
+        console.log(isUser);
 
         if (isUser) {
             return res
@@ -104,6 +106,7 @@ router.post("/signin", async (req, res) => {
                 name: isUser.name,
                 email: isUser.email,
                 role: isUser.role,
+                cart: isUser.cart,
             },
             accessToken,
         });
@@ -118,9 +121,10 @@ router.post("/signin", async (req, res) => {
 
 router.get("/get-user-info", protectedRoute, async (req, res) => {
     const { userId } = req.user;
+    console.log(userId);
 
     try {
-        const user = await User.findOne({ _id: userId });
+        const user = await User.findById(userId).select("-password");
 
         if (!user) {
             return res.status(404).json({
@@ -128,13 +132,16 @@ router.get("/get-user-info", protectedRoute, async (req, res) => {
             });
         }
 
-        return res.status(200).json({
+        const cart = await Cart.find({ user: userId }).populate("product");
+
+        res.status(200).json({
             error: false,
             message: "User info",
             user: {
                 name: user.name,
                 email: user.email,
                 role: user.role,
+                cart,
             }
         });
     } catch (error) {
