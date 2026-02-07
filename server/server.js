@@ -8,6 +8,7 @@ dotenv.config();
 import connectDB from "./utils/connectDB.js";
 import authRoutes from "./routes/auth_routes.js";
 import productRoutes from "./routes/product_routes.js";
+import cartRouter from "./routes/cart_routes.js";
 
 const app = express();
 app.use(cors());
@@ -18,6 +19,7 @@ app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/product", productRoutes);
+app.use("/api/cart", cartRouter);
 
 const PORT = process.env.PORT || 8080;
 
