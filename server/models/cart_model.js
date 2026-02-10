@@ -4,7 +4,9 @@ const cartSchema = Schema(
     {
         product: { type: Schema.Types.ObjectId, ref: "Product", required: true },
         user: { type: Schema.Types.ObjectId, ref: "User", required: true },
-        quantity: Number,
+        size: { type: String, required: true },
+        color: { type: String, required: true },
+        quantity: { type: Number, default: 1 },
     },
     {
         timestamps: true,
