@@ -121,7 +121,6 @@ router.post("/signin", async (req, res) => {
 
 router.get("/get-user-info", protectedRoute, async (req, res) => {
     const { userId } = req.user;
-    console.log(userId);
 
     try {
         const user = await User.findById(userId).select("-password");
@@ -138,6 +137,7 @@ router.get("/get-user-info", protectedRoute, async (req, res) => {
             error: false,
             message: "User info",
             user: {
+                id: user._id,
                 name: user.name,
                 email: user.email,
                 role: user.role,
