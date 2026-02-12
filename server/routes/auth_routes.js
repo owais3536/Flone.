@@ -119,6 +119,7 @@ router.post("/signin", async (req, res) => {
     }
 });
 
+//get user info
 router.get("/get-user-info", protectedRoute, async (req, res) => {
     const { userId } = req.user;
 
